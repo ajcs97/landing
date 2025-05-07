@@ -20,6 +20,8 @@ const Drag: React.FC<DragProps> = ({ dragType, dragSrc, children }) => {
     onDragStart: onDragStart(dragType),
   };
 
+  // Clone the children and add the extended props 
+  // console.log({ extendedProps });
   const childrenWithProps = React.Children.map(children, (child) => {
     let newChild = child;
     if (React.isValidElement(child)) {

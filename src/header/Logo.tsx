@@ -1,7 +1,7 @@
 import React from "react";
 
 const Logo: React.FC = () => (
-  <img width={25} height={25} src={`/doc-tree-icon.svg`} alt="konva" />
+  <img width={25} height={25} src={`/camera-icon.png`} alt="camera-icon" />
 );
 
 export default Logo;

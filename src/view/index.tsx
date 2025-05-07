@@ -4,7 +4,6 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { ReactReduxContext, Provider } from "react-redux";
 import positionStyles from "../style/position.module.css";
 import Drop from "../util/Drop";
-import { decimalUpToSeven } from "../util/decimalUpToSeven";
 import { ITEMS_CONTEXT } from "../hook/useItem";
 import useDragAndDrop from "../hook/useDragAndDrop";
 import useLocalStorage from "../hook/useLocalStorage";

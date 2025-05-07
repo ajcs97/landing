@@ -119,7 +119,7 @@ export const initialStageDataList = [
           y: 338.51834068115784,
           fontSize: 30,
           fontFamily: "'Jua', sans-serif",
-          text: "2. Usa los widgets de Imagen, Forma, Texto e Ícono de la misma manera para crear tu imagen.",
+          text: "2. Usa los widgets de Imagen, Forma, Texto e Ícono de la misma manera para crear tu hoodie",
           textAlign: "left",
           verticalAlign: "top",
           zIndex: 0,

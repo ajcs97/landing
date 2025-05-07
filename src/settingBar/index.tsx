@@ -14,6 +14,7 @@ import useStage from "../hook/useStage";
 import ShapeWidget from "./widgetList/ShapeWidget";
 import IconWidget from "./widgetList/IconWidget";
 import LineWidget from "./widgetList/LineWidget";
+import StickerWidget from "./widgetList/StickerWidget";
 
 export type SettingBarProps = {
   selectedItems: Node<NodeConfig>[];
@@ -25,6 +26,7 @@ const Widgets = {
   colorPalette: (data: WidgetKind & SettingBarProps) => <ColorPaletteWidget data={data} />,
   align: (data: WidgetKind & SettingBarProps) => <AlignWidget data={data} />,
   image: (data: WidgetKind & SettingBarProps) => <ImageWidget />,
+  stickers: (data: WidgetKind & SettingBarProps) => <StickerWidget />,
   frame: (data: WidgetKind & SettingBarProps) => <FrameWidget />,
   shape: (data: WidgetKind & SettingBarProps) => <ShapeWidget />,
   text: (data: WidgetKind & SettingBarProps) => <TextWidget />,
@@ -35,16 +37,19 @@ const Widgets = {
 
 export type WidgetIDList = keyof typeof Widgets;
 
-const SettingBar: React.FC<SettingBarProps> = (settingProps) => (
-  <aside>
-    <Accordion>
-      {(widgetList as WidgetKind[]).map((data) => (
-        <Widget key={`widget-${data.id}`} data={{ ...data, ...settingProps }}>
-          {Widgets[data.id] && Widgets[data.id]({ ...data, ...settingProps })}
-        </Widget>
-      ))}
-    </Accordion>
-  </aside>
-);
+const SettingBar: React.FC<SettingBarProps> = (settingProps) => {
+
+  return (
+    <aside>
+      <Accordion>
+        {(widgetList as WidgetKind[]).map((data) => (
+          <Widget key={`widget-${data.id}`} data={{ ...data, ...settingProps }}>
+            {Widgets[data.id] && Widgets[data.id]({ ...data, ...settingProps })}
+          </Widget>
+        ))}
+      </Accordion>
+    </aside>
+  )
+}
 
 export default SettingBar;

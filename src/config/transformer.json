@@ -5,11 +5,30 @@
   },
   "image": {
     "rotateEnabled": false,
-    "enabledAnchors": ["top-left", "top-right", "bottom-left", "bottom-right"]
+    "enabledAnchors": [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ]
   },
   "line": {
     "rotateEnabled": true,
-    "enabledAnchors": ["top-left", "top-right", "bottom-left", "bottom-right"]
+    "enabledAnchors": [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ]
+  },
+  "stickers": {
+    "rotateEnabled": false,
+    "enabledAnchors": [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ]
   },
   "default": {
     "rotateEnabled": true,

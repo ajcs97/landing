@@ -33,6 +33,7 @@ import useHotkeyFunc from "./hook/useHotkeyFunc";
 import useWorkHistory from "./hook/useWorkHistory";
 import useI18n from "./hook/usei18n";
 import { initialStageDataList } from "./redux/initilaStageDataList";
+import StickerItem, { StickerItemProps } from "./view/object/stickers";
 
 export type FileKind = {
   "file-id": string;
@@ -168,6 +169,7 @@ function App() {
   );
 
   const renderObject = (item: StageData) => {
+    console.log(item)
     switch (item.attrs["data-item-type"]) {
       case "frame":
         return (
@@ -182,6 +184,14 @@ function App() {
           <ImageItem
             key={`image-${item.id}`}
             data={item as ImageItemProps["data"]}
+            onSelect={onSelectItem}
+          />
+        );
+      case "sticker":
+        return (
+          <StickerItem
+            key={`sticker-${item.id}`}
+            data={item as StickerItemProps["data"]}
             onSelect={onSelectItem}
           />
         );

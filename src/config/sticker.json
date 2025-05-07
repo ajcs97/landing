@@ -1,0 +1,20 @@
+[
+  {
+    "type": "stickers",
+    "id": "lemon",
+    "name": "lemon squeezy",
+    "src": "lemon.png"
+  },
+  {
+    "type": "stickers",
+    "id": "hoownie",
+    "name": "hoownie",
+    "src": "hoownie.png"
+  },
+  {
+    "type": "stickers",
+    "id": "kaos-jackets",
+    "name": "kaos jackets",
+    "src": "kaos-jackets.png"
+  }
+]

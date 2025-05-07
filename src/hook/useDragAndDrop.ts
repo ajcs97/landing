@@ -82,6 +82,48 @@ const useDragAndDrop = (
     };
     imageSrc.src = source;
   };
+  const insertSticker = (e: DragEvent, data: { [key: string]: any }) => {
+    const imageSrc = new Image();
+    let source = data.src;
+
+    source = data.src;
+
+    imageSrc.onload = () => {
+      let width;
+      let height;
+      if (imageSrc.width > imageSrc.height) {
+        width = decimalUpToSeven(512);
+        height = decimalUpToSeven(width * (imageSrc.height / imageSrc.width));
+      } else {
+        height = decimalUpToSeven(512);
+        width = decimalUpToSeven(height * (imageSrc.width / imageSrc.height));
+      }
+      const position = getFramePos(stageRef!.current!, e, width, height);
+      const newImage: StageData = {
+        id: nanoid(),
+        attrs: {
+          name: "label-target",
+          "data-item-type": "sticker",
+          x: position.x,
+          y: position.y,
+          width,
+          height,
+          src: data.src,
+          zIndex: 0,
+          brightness: 0,
+          _filters: ["Brighten"],
+          updatedAt: Date.now(),
+        },
+        className: "sample-image",
+        children: [],
+      };
+
+      createItem(newImage);
+    };
+    imageSrc.src = source;
+  };
+
+
 
   const insertText = (e: DragEvent, data: { [key: string]: any }) => {
     const position = getFramePos(stageRef.current, e, data.width, data.height);
@@ -217,6 +259,8 @@ const useDragAndDrop = (
         return insertIcon(e, data);
       case TRIGGER.INSERT.LINE:
         return insertLine(e, data);
+      case TRIGGER.INSERT.STICKERS:
+        return insertSticker(e, data);
       default:
     }
   };

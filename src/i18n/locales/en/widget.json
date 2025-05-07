@@ -3,6 +3,10 @@
     "id": "image",
     "name": "Image"
   },
+  "stickers": {
+    "id": "stickers",
+    "name": "Stickers"
+  },
   "colorPalette": {
     "id": "colorPalette",
     "name": "Color Palette",

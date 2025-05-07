@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Figure, Row } from "react-bootstrap";
 import { nanoid } from "nanoid";
-import presetImageList from "../../config/image.json";
+import presetImageList from "../../config/sticker.json";
 import { ImageItemKind } from "../../view/object/image";
 import colorStyles from "../../style/color.module.css";
 import borderStyles from "../../style/border.module.css";
@@ -12,19 +12,22 @@ import alignStyles from "../../style/align.module.css";
 import fontStyles from "../../style/font.module.css";
 import Drag from "../../util/Drag";
 import TRIGGER from "../../config/trigger";
-import useImageAsset from "../../hook/useImageAsset";
 import useI18n from "../../hook/usei18n";
+import useStickerAsset from "../../hook/useStickerAsset";
 
 export const IMAGE_LIST_KEY = "importedImage";
 
-const ImageWidget: React.FC = () => {
-  const { setImageAsset, getAllImageAsset } = useImageAsset();
+const StickerWidget: React.FC = () => {
+  const { setStickerAsset, getAllStickerAsset } = useStickerAsset();
   const { getTranslation } = useI18n();
   const [imageAssetList, setImageAssetList] = useState(() => {
-    if (getAllImageAsset().length) {
-      return [...getAllImageAsset()!];
+    if (getAllStickerAsset().length) {
+      console.log({
+        getAllStickerAsset: getAllStickerAsset()
+      })
+      return [...getAllStickerAsset()!];
     }
-    setImageAsset(presetImageList);
+    setStickerAsset(presetImageList);
     return [...presetImageList];
   });
 
@@ -34,14 +37,14 @@ const ImageWidget: React.FC = () => {
       setImageAssetList((prev) => {
         const result = [
           {
-            type: "image",
+            type: "stickers",
             id: nanoid(),
-            name: "imported image",
+            name: "imported sticker",
             src: fileReader.result as string,
           },
           ...prev,
         ];
-        setImageAsset(result);
+        setStickerAsset(result);
         return result;
       });
     };
@@ -61,11 +64,13 @@ const ImageWidget: React.FC = () => {
     file.click();
   };
 
+
+
   return (
     <Col className={[sizeStyles["mx-h-30vh"]].join(" ")}>
       <Row>
         <h6>
-          {getTranslation("widget", "image", "name")}
+          {getTranslation("widget", "stickers", "name")}
           <Button
             className={[
               colorStyles.transparentDarkColorTheme,
@@ -83,10 +88,12 @@ const ImageWidget: React.FC = () => {
         </h6>
       </Row>
       <Row xs={2}>
-        {imageAssetList.map((_data) => {
-          console.log({ dataImage: _data })
+        {imageAssetList.length > 0 && imageAssetList.map((_data) => {
+          console.log({
+            dataSticker: _data
+          })
           return (
-            <ImageThumbnail
+            <StickerThumbnail
               key={`image-thumbnail-${_data.id}`}
               data={{
                 id: _data.id,
@@ -103,13 +110,13 @@ const ImageWidget: React.FC = () => {
   );
 };
 
-export default ImageWidget;
+export default StickerWidget;
 
-const ImageThumbnail: React.FC<{
+const StickerThumbnail: React.FC<{
   maxPx: number;
   data: Omit<ImageItemKind, "image">;
 }> = ({ data: { id, ...data }, maxPx }) => {
-  const { getImageAssetSrc } = useImageAsset();
+  const { getStickerAssetSrc } = useStickerAsset();
   return (
     <Figure
       as={Col}
@@ -118,7 +125,7 @@ const ImageThumbnail: React.FC<{
       <Drag
         dragType="copyMove"
         dragSrc={{
-          trigger: TRIGGER.INSERT.IMAGE,
+          trigger: TRIGGER.INSERT.STICKERS,
           "data-item-type": data["data-item-type"],
           src: data.src.startsWith("data:")
             ? data.src

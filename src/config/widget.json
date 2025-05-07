@@ -1,7 +1,11 @@
 [
   {
     "id": "image",
-    "name": "Image"
+    "name": "Hoodies"
+  },
+  {
+    "id": "stickers",
+    "name": "stickers"
   },
   {
     "id": "colorPalette",

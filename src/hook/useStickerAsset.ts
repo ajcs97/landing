@@ -2,32 +2,33 @@ import Konva from "konva";
 import { nanoid } from "nanoid";
 import { decimalUpToSeven } from "../util/decimalUpToSeven";
 import { useDispatch, useSelector } from "react-redux";
-import { imageAssetListAction, imageAssetListSelector } from "../redux/imageAssetList";
+import { stickerAssetListAction, stickerAssetListSelector } from "../redux/stickerAssetList";
 
-const useImageAsset = () => {
+const useStickerAsset = () => {
   const dispatch = useDispatch();
-  const imageAssetList = useSelector(imageAssetListSelector.selectAll);
+  const stickerAssetList = useSelector(stickerAssetListSelector.selectAll);
 
-  const setImageAsset = async (imageList: { [key: string]: any }[]) => {
-    console.log("imageList", imageList);
-    imageList.map((image) =>
+  const setStickerAsset = async (stickerList: { [key: string]: any }[]) => {
+    stickerList.map((image) => {
       dispatch(
-        imageAssetListAction.addItem({
+        stickerAssetListAction.addItem({
           type: image["data-item-type"],
           id: image.id,
           name: image.name,
           src: image.src,
         }),
-      ),
+      )
+    }
     );
   };
 
-  const getAllImageAsset = (): { [key: string]: any }[] => {
-    return imageAssetList;
+  const getAllStickerAsset = (): { [key: string]: any }[] => {
+
+    return stickerAssetList;
   };
 
-  const getImageAssetSrc = (imageId: string) =>
-    imageAssetList.find((image) => image.id === imageId)?.src ?? null;
+  const getStickerAssetSrc = (imageId: string) =>
+    stickerAssetList.find((image) => image.id === imageId)?.src ?? null;
 
   const reduceImageSize = (base64: string, imageId?: string, callback?: (src: string) => void) => {
     Konva.Image.fromURL(base64, (imageNode: Konva.Image) => {
@@ -57,11 +58,11 @@ const useImageAsset = () => {
   };
 
   return {
-    setImageAsset,
-    getAllImageAsset,
-    getImageAssetSrc,
+    setStickerAsset,
+    getAllStickerAsset,
+    getStickerAssetSrc,
     reduceImageSize,
   };
 };
 
-export default useImageAsset;
+export default useStickerAsset;

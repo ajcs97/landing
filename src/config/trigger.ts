@@ -6,5 +6,6 @@ export default {
     SHAPE: "INSERT SHAPE",
     ICON: "INSERT ICON",
     LINE: "INSERT LINE",
+    STICKERS: "INSERT STICKERS",
   },
 };
