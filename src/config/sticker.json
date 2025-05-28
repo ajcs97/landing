@@ -16,5 +16,133 @@
     "id": "kaos-jackets",
     "name": "kaos jackets",
     "src": "kaos-jackets.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-10@4x",
+    "name": "Recurso-10@4x",
+    "src": "Recurso-10@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-11@4x",
+    "name": "Recurso-11@4x",
+    "src": "Recurso-11@4x.png"
+  },
+
+  {
+    "type": "sticker",
+    "id": "Recurso-13@4x",
+    "name": "Recurso-13@4x",
+    "src": "Recurso-13@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-15@4x",
+    "name": "Recurso-15@4x",
+    "src": "Recurso-15@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-16@4x",
+    "name": "Recurso-16@4x",
+    "src": "Recurso-16@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-17@4x",
+    "name": "Recurso-17@4x",
+    "src": "Recurso-17@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-18@4x",
+    "name": "Recurso-18@4x",
+    "src": "Recurso-18@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-19@4x",
+    "name": "Recurso-19@4x",
+    "src": "Recurso-19@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-20@4x",
+    "name": "Recurso-20@4x",
+    "src": "Recurso-20@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-21@4x",
+    "name": "Recurso-21@4x",
+    "src": "Recurso-21@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-22@4x",
+    "name": "Recurso-22@4x",
+    "src": "Recurso-22@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-23@4x",
+    "name": "Recurso-23@4x",
+    "src": "Recurso-23@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-24@4x",
+    "name": "Recurso-24@4x",
+    "src": "Recurso-24@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-25@4x",
+    "name": "Recurso-25@4x",
+    "src": "Recurso-25@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-26@4x",
+    "name": "Recurso-26@4x",
+    "src": "Recurso-26@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-27@4x",
+    "name": "Recurso-27@4x",
+    "src": "Recurso-27@4x.png"
+  },
+
+  {
+    "type": "sticker",
+    "id": "Recurso-4@4x",
+    "name": "Recurso-4@4x",
+    "src": "Recurso-4@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-5@4x",
+    "name": "Recurso-5@4x",
+    "src": "Recurso-5@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-6@4x",
+    "name": "Recurso-6@4x",
+    "src": "Recurso-6@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-8@4x",
+    "name": "Recurso-8@4x",
+    "src": "Recurso-8@4x.png"
+  },
+  {
+    "type": "sticker",
+    "id": "Recurso-9@4x",
+    "name": "Recurso-9@4x",
+    "src": "Recurso-9@4x.png"
   }
 ]
