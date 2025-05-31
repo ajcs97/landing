@@ -391,6 +391,14 @@ button {
   padding: 0;
 }
 
+.titlepage2 h2 {
+  font-size: 35px;
+  color: #2a2a2c;
+  line-height: 45px;
+  font-weight: bold;
+  padding: 0;
+}
+
 .d_flex {
   display: flex;
   align-items: center;
@@ -813,4 +821,3 @@ ul.location_icon li a {
 .shop {
   margin-bottom: 90px;
 }
-
