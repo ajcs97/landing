@@ -12,10 +12,8 @@ COPY package*.json ./
 # COPY public ./public
 COPY . .
 # Instalar dependencias
-RUN npm install
-
-# Construir la aplicación
-RUN npm run build
+RUN npm install &&\
+  npm run build
 
 # Etapa 2: Servir con Nginx
 FROM nginx:stable-alpine
@@ -23,8 +21,11 @@ FROM nginx:stable-alpine
 # Elimina la configuración por defecto de nginx
 RUN rm -rf /usr/share/nginx/html/*
 
+# Copiar la landing page estática a Nginx
+COPY landing /usr/share/nginx/html/landing
+
 # Copiar archivos construidos desde la etapa anterior
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html/react-app
 
 # Copiar configuración personalizada de nginx si la tienes
 COPY nginx.conf /etc/nginx/conf.d/default.conf
