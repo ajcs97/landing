@@ -23,8 +23,8 @@ const StickerWidget: React.FC = () => {
   const [imageAssetList, setImageAssetList] = useState(() => {
     if (getAllStickerAsset().length) {
       console.log({
-        getAllStickerAsset: getAllStickerAsset()
-      })
+        getAllStickerAsset: getAllStickerAsset(),
+      });
       return [...getAllStickerAsset()!];
     }
     setStickerAsset(presetImageList);
@@ -57,14 +57,12 @@ const StickerWidget: React.FC = () => {
         Object.values((event.target as HTMLInputElement).files!).forEach(
           (file) => {
             fileReader.readAsDataURL(file);
-          }
+          },
         );
       }
     };
     file.click();
   };
-
-
 
   return (
     <Col className={[sizeStyles["mx-h-30vh"]].join(" ")}>
@@ -88,23 +86,24 @@ const StickerWidget: React.FC = () => {
         </h6>
       </Row>
       <Row xs={2}>
-        {imageAssetList.length > 0 && imageAssetList.map((_data) => {
-          console.log({
-            dataSticker: _data
-          })
-          return (
-            <StickerThumbnail
-              key={`image-thumbnail-${_data.id}`}
-              data={{
-                id: _data.id,
-                src: _data.src ?? `find:${_data.id}`,
-                name: _data.name,
-                "data-item-type": _data.type,
-              }}
-              maxPx={80}
-            />
-          )
-        })}
+        {imageAssetList.length > 0 &&
+          imageAssetList.map((_data) => {
+            console.log({
+              dataSticker: _data,
+            });
+            return (
+              <StickerThumbnail
+                key={`image-thumbnail-${_data.id}`}
+                data={{
+                  id: _data.id,
+                  src: _data.src ?? `find:${_data.id}`,
+                  name: _data.name,
+                  "data-item-type": _data.type,
+                }}
+                maxPx={80}
+              />
+            );
+          })}
       </Row>
     </Col>
   );
@@ -129,7 +128,7 @@ const StickerThumbnail: React.FC<{
           "data-item-type": data["data-item-type"],
           src: data.src.startsWith("data:")
             ? data.src
-            : `/assets/image/${data.src}`,
+            : `/react-app/assets/image/${data.src}`,
         }}
       >
         <Figure.Image
@@ -137,7 +136,7 @@ const StickerThumbnail: React.FC<{
           src={
             data.src.startsWith("data:")
               ? data.src
-              : `/assets/image/${data.src}`
+              : `/react-app/assets/image/${data.src}`
           }
         />
       </Drag>

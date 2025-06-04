@@ -54,7 +54,7 @@ const ImageWidget: React.FC = () => {
         Object.values((event.target as HTMLInputElement).files!).forEach(
           (file) => {
             fileReader.readAsDataURL(file);
-          }
+          },
         );
       }
     };
@@ -84,7 +84,7 @@ const ImageWidget: React.FC = () => {
       </Row>
       <Row xs={2}>
         {imageAssetList.map((_data) => {
-          console.log({ dataImage: _data })
+          console.log({ dataImage: _data });
           return (
             <ImageThumbnail
               key={`image-thumbnail-${_data.id}`}
@@ -96,7 +96,7 @@ const ImageWidget: React.FC = () => {
               }}
               maxPx={80}
             />
-          )
+          );
         })}
       </Row>
     </Col>
@@ -122,7 +122,7 @@ const ImageThumbnail: React.FC<{
           "data-item-type": data["data-item-type"],
           src: data.src.startsWith("data:")
             ? data.src
-            : `/assets/image/${data.src}`,
+            : `/react-app/assets/image/${data.src}`,
         }}
       >
         <Figure.Image
@@ -130,7 +130,7 @@ const ImageThumbnail: React.FC<{
           src={
             data.src.startsWith("data:")
               ? data.src
-              : `/assets/image/${data.src}`
+              : `/react-app/assets/image/${data.src}`
           }
         />
       </Drag>

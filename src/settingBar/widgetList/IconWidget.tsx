@@ -37,7 +37,7 @@ const IconWidget: React.FC = () => {
               "widget",
               "icon",
               "search",
-              "placeholder"
+              "placeholder",
             )}
           />
           <Form.Text className="text-muted">
@@ -82,7 +82,7 @@ const IconThumbnail: React.FC<{
     >
       <Figure.Image
         alt={data.icon}
-        src={`/assets/icon/bootstrap/${data.icon}`}
+        src={`/react-app/assets/icon/bootstrap/${data.icon}`}
       />
     </Drag>
     {/* <Figure.Caption
