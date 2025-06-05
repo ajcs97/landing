@@ -40,10 +40,12 @@ const View: React.FC<{
       };
     }
   }, [canvasRef]);
+  console.log(canvas.getObjects());
 
   const setCanvasSize = useCallback(() => {
     if (!canvasRef.current?.parentElement) return;
-    const { width, height } = canvasRef.current.parentElement.getBoundingClientRect();
+    const { width, height } =
+      canvasRef.current.parentElement.getBoundingClientRect();
     canvasRef.current.width = width;
     canvasRef.current.height = height;
     canvas?.setWidth(width);
@@ -67,7 +69,7 @@ const View: React.FC<{
       setValue(STAGE_POSITION, { x: 0, y: 0 });
     },
     {},
-    [canvas]
+    [canvas],
   );
 
   const handleWheelZoom = useCallback(
@@ -87,7 +89,7 @@ const View: React.FC<{
       canvas.zoomToPoint(new fabric.Point(x, y), zoom);
       setValue(STAGE_SCALE, { x: zoom, y: zoom });
     },
-    [canvas]
+    [canvas],
   );
 
   useEffect(() => {
@@ -108,15 +110,24 @@ const View: React.FC<{
     <ReactReduxContext.Consumer>
       {({ store }) => (
         <div
-          className={[positionStyles.absolute, positionStyles.top0, positionStyles.left0].join(" ")}
-          style={{ width: "100%", height: "100%" }}>
+          className={[
+            positionStyles.absolute,
+            positionStyles.top0,
+            positionStyles.left0,
+          ].join(" ")}
+          style={{ width: "100%", height: "100%" }}
+        >
           <Provider store={store}>
             <canvas ref={canvasRef} />
             {canvas &&
               React.Children.map(children, (child) =>
-                React.cloneElement(child as React.ReactElement<any>, { canvas })
+                React.cloneElement(child as React.ReactElement<any>, {
+                  canvas,
+                }),
               )}
-            {container ? <Drop callback={onDropOnStage} targetDOMElement={container} /> : null}
+            {container ? (
+              <Drop callback={onDropOnStage} targetDOMElement={container} />
+            ) : null}
           </Provider>
         </div>
       )}
@@ -125,4 +136,3 @@ const View: React.FC<{
 };
 
 export default View;
-
