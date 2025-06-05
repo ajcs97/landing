@@ -7,6 +7,9 @@ export const STAGE_SCALE = "stageScale";
 
 const useStage = () => {
   const stageRef = useRef() as MutableRefObject<Konva.Stage>;
+
+  console.log("pointer position", stageRef.current?.getPointerPosition());
+
   const dragBackgroundOrigin = useRef<Vector2d>({ x: 0, y: 0 });
 
   const setStageRef = (stage: Konva.Stage) => {

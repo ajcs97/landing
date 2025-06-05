@@ -53,9 +53,12 @@ function App() {
     setFuture,
   );
   const transformer = useTransformer();
-  const { selectedItems, onSelectItem, setSelectedItems, clearSelection }
-    = useSelection(transformer);
-  const { tabList, onClickTab, onCreateTab, onDeleteTab } = useTab(transformer, clearHistory);
+  const { selectedItems, onSelectItem, setSelectedItems, clearSelection } =
+    useSelection(transformer);
+  const { tabList, onClickTab, onCreateTab, onDeleteTab } = useTab(
+    transformer,
+    clearHistory,
+  );
   const { stageData } = useItem();
   const { initializeFileDataList, updateFileData } = useStageDataList();
   const stage = useStage();
@@ -75,7 +78,8 @@ function App() {
   const [clipboard, setClipboard] = useState<StageData[]>([]);
   const createStageDataObject = (item: Node<NodeConfig>): StageData => {
     const { id } = item.attrs;
-    const target = item.attrs["data-item-type"] === "frame" ? item.getParent() : item;
+    const target =
+      item.attrs["data-item-type"] === "frame" ? item.getParent() : item;
     return {
       id: nanoid(),
       attrs: {
@@ -95,7 +99,10 @@ function App() {
     onSelectItem,
   );
 
-  const currentTabId = useMemo(() => tabList.find((tab) => tab.active)?.id ?? null, [tabList]);
+  const currentTabId = useMemo(
+    () => tabList.find((tab) => tab.active)?.id ?? null,
+    [tabList],
+  );
 
   const sortedStageData = useMemo(
     () =>
@@ -169,7 +176,7 @@ function App() {
   );
 
   const renderObject = (item: StageData) => {
-    console.log(item)
+    console.log(item);
     switch (item.attrs["data-item-type"]) {
       case "frame":
         return (
@@ -374,7 +381,9 @@ function App() {
     <Layout header={header} navBar={navBar} settingBar={settingBar}>
       {hotkeyModal}
       <View onSelect={onSelectItem} stage={stage}>
-        {stageData.length ? sortedStageData.map((item) => renderObject(item)) : null}
+        {stageData.length
+          ? sortedStageData.map((item) => renderObject(item))
+          : null}
         <Transformer
           ref={transformer.transformerRef}
           keepRatio
