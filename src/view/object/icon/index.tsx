@@ -42,15 +42,15 @@ const IconItem: React.FC<IconItemProps> = ({ data, e, onSelect }) => {
       }));
       e.target.getLayer()?.batchDraw();
     },
-    [data]
+    [data],
   );
 
   useEffect(() => {
     Konva.Image.fromURL(
-      `/assets/icon/bootstrap/${attrs.icon}`,
+      `/react-app/assets/icon/bootstrap/${attrs.icon}`,
       (image: Konva.Image) => {
         setImageSrc(image.image()!);
-      }
+      },
     );
   }, []);
 
