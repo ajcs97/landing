@@ -6,14 +6,10 @@ WORKDIR /app
 
 # Copiar archivos
 COPY package*.json ./
-# COPY vite.config.* ./
-# COPY tsconfig.* ./
-# COPY src ./src
-# COPY public ./public
 COPY . .
 # Instalar dependencias
-RUN npm install &&\
-  npm run build
+RUN npm install --legacy-peer-deps && npm run build
+
 
 # Etapa 2: Servir con Nginx
 FROM nginx:stable-alpine
